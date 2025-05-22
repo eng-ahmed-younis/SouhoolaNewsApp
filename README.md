@@ -1,6 +1,6 @@
 # 📰 News App - Android Jetpack Compose
 
-A modern Android news application built with **Jetpack Compose** that fetches news articles from [NewsAPI.org](https://newsapi.org/) with advanced features like pagination, sorting, offline handling, and clean architecture following MVI pattern.
+Android news application built with **Jetpack Compose** that fetches news articles from [NewsAPI.org](https://newsapi.org/) with advanced features like pagination, sorting, offline handling, and clean architecture following MVI pattern.
 
 ## 🎯 Features
 
