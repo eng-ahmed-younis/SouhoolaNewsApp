@@ -118,6 +118,12 @@ dependencies {
 
 
     implementation(libs.kotlinx.serialization.core)
+
+
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("androidx.navigation:navigation-runtime-ktx:2.7.7")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3") // match your Kotlin version
+
 }
 
 kapt {

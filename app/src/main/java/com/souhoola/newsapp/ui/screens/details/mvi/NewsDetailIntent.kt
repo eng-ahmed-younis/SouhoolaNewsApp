@@ -7,5 +7,5 @@ sealed class NewsDetailIntent {
     data class ShareArticle(val article: Article) : NewsDetailIntent()
     object ClearOpenUrl : NewsDetailIntent()
     object ClearShareArticle : NewsDetailIntent()
-    data class LoadArticle(val article: Article) : NewsDetailIntent()
+    data object LoadArticle : NewsDetailIntent()
 }

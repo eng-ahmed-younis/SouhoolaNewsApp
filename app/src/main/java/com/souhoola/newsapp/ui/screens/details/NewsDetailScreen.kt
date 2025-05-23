@@ -37,6 +37,10 @@ fun NewsDetailScreen(
     val context = LocalContext.current
     val article = state.value.article
 
+    LaunchedEffect (Unit) {
+        onIntent(NewsDetailIntent.LoadArticle)
+    }
+
     // Handle URL opening
     LaunchedEffect(state.value.openUrl) {
         state.value.openUrl?.let { url ->

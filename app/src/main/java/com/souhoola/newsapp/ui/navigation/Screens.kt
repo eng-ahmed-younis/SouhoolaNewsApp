@@ -1,13 +1,26 @@
 package com.souhoola.newsapp.ui.navigation
 
-import java.net.URLEncoder
+import com.souhoola.newsapp.domain.model.Article
+import com.souhoola.newsapp.domain.model.Source
+import kotlinx.serialization.Serializable
 
-sealed class Screens(val route: String) {
-    object NewsList : Screens("news_list")
-    object NewsDetail : Screens("news_detail/{articleJson}") {
-        fun createRoute(articleJson: String): String {
-            val encodedJson = URLEncoder.encode(articleJson, "UTF-8")
-            return "news_detail/$encodedJson"
-        }
-    }
+
+@Serializable
+sealed class Screens() {
+    @Serializable
+    data object NewsList : Screens()
+
+    @Serializable
+    data class NewsDetail (
+        val id: String? = null,
+        val name: String = "",
+        val author: String? = null,
+        val title: String = "",
+        val description: String? = null,
+        val url: String = "",
+        val urlToImage: String? = null,
+        val publishedAt: String = "",
+        val content: String? = null
+
+    ): Screens()
 }

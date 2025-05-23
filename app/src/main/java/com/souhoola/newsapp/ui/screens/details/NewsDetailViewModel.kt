@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.souhoola.newsapp.domain.model.Article
 import com.souhoola.newsapp.ui.screens.details.mvi.NewsDetailIntent
 import com.souhoola.newsapp.ui.screens.details.mvi.NewsDetailState
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jakarta.inject.Inject
 import kotlinx.coroutines.channels.Channel
@@ -14,8 +16,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 
-@HiltViewModel
-class NewsDetailViewModel @Inject constructor() : ViewModel() {
+@HiltViewModel(assistedFactory = NewsDetailViewModelFactory::class)
+class NewsDetailViewModel @AssistedInject constructor(
+    @Assisted private val article: Article
+) : ViewModel() {
 
     private val _state = MutableStateFlow(NewsDetailState())
     val state: StateFlow<NewsDetailState> = _state.asStateFlow()
@@ -37,7 +41,7 @@ class NewsDetailViewModel @Inject constructor() : ViewModel() {
                     is NewsDetailIntent.LoadArticle -> {
                         updateState {
                             it.copy(
-                                article = intent.article,
+                                article = article,
                                 isLoading = false,
                                 error = null
                             )

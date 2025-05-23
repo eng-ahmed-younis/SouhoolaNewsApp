@@ -41,7 +41,6 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NewsNavigation(
                         navController = navController,
-                        json = remember { json },
                         scope = rememberCoroutineScope()
                     )
                 }
@@ -56,6 +55,6 @@ class MainActivity : ComponentActivity() {
 fun GreetingPreview() {
     SouhoolaNewsAppTheme {
         val navController = rememberNavController()
-        NewsNavigation(navController, Json, rememberCoroutineScope())
+        NewsNavigation(navController, rememberCoroutineScope())
     }
 }
